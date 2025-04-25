@@ -68,7 +68,7 @@ if uploaded_file:
                sheet_name = f"Group_{i+1}"
                combined_df = pd.concat(group['data'], ignore_index=True)
                combined_df.to_excel(writer, sheet_name=sheet_name, index=False)
-         st.success(f"✅ Saved to {excel_path}")
+         st.success(f"Saved to {excel_path}")
          with open(excel_path, "rb") as f:
             st.download_button(
                label="Download Excel",
@@ -77,8 +77,8 @@ if uploaded_file:
                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
             )
       else:
-         st.warning("⚠️ No valid tables found.")
+         st.warning("No valid tables found.")
    except Exception as e:
-      st.error(f"❌ Error: {e}")
+      st.error(f"Error: {e}")
    if os.path.exists(pdf_path):
       os.remove(pdf_path)
